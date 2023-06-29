@@ -2,8 +2,7 @@
 
 int main()
 {
-    std::cout << "Hi!" << std::endl;
-    std:: cout << "My name is";
+	std::cout << sizeof(int); // print how many bytes of memory an int value takes
 
-return 0;
+	return 0;
 }
