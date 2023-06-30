@@ -2,7 +2,11 @@
 
 int main() {
 
-    std::cout<<"Test changes to private to public" << std::endl;
+    std::cout << "Enter a float: " << std::endl;
+    float user_input {};
+    std::cin>> user_input;
+
+    
 
     return 0;
 
