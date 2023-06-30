@@ -6,9 +6,9 @@ int main(){
     int num {}; 
     std:: cin >> num;
     
-    int doublenum { num * 2};
-    std::cout << "The squared version of your input is: " << doublenum << std::endl; 
-    
+
+    std::cout << "The doubled version of your input is: " << num*2 << std::endl; 
+    std::cout << "The tripled version of your input is: " << num*3 << std::endl; 
 
     return 0;
 }
