@@ -2,7 +2,7 @@
 
 int main() {
 
-    std::cout<<"Change name of repo test" << std::endl;
+    std::cout<<"Test changes to private to public" << std::endl;
 
     return 0;
 
