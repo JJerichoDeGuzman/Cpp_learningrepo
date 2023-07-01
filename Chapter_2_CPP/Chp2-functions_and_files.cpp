@@ -1,26 +1,24 @@
-#include <iostream> // for std::cout
+#include <iostream>
 
-void doB()
+int getValueFromUser()
 {
-    std::cout << "In doB()\n";
+ 	std::cout << "Enter an integer: ";
+	int input{};
+	std::cin >> input;
+
+	return input;
 }
 
-void doA()
+void printDouble(int value) // This function now has an integer parameter
 {
-    std::cout << "In doA()\n";
-
-    doB();
+	std::cout << value << " doubled is: " << value * 2 << '\n';
 }
 
-// Definition of function main()
 int main()
 {
-    std::cout << "Starting main()\n";
+	int num { getValueFromUser() };
 
-    doA();
-    doB();
+	printDouble(num);
 
-    std::cout << "Ending main()\n";
-
-    return 0;
+	return 0;
 }
