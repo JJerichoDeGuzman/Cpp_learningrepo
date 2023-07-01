@@ -1,24 +1,16 @@
 #include <iostream>
 
-int getValueFromUser()
+void double_number(int num)
 {
- 	std::cout << "Enter an integer: ";
-	int input{};
-	std::cin >> input;
+    std::cout << " The double value of " << num << " is " << num * num <<std::endl; 
 
-	return input;
 }
 
-void printDouble(int value) // This function now has an integer parameter
-{
-	std::cout << value << " doubled is: " << value * 2 << '\n';
+int main () {
+
+    int double_number(5);
+
+    return 0; 
+
 }
 
-int main()
-{
-	int num { getValueFromUser() };
-
-	printDouble(num);
-
-	return 0;
-}
