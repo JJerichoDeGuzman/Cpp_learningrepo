@@ -1,16 +1,16 @@
-#include <iostream>
+#include <iostream> 
+using namespace std;
 
-void reverseString(std::string& str) {
-   char ch;
-   for (int index = 0, len = str.length(); index < len/2; index++) {
-      ch = str[index];
-      str[index] = str[len-1-index];
-      str[len-1-index] = ch;
+string reverseString(const string& str) {
+   string rev(str.length(), ' ');
+   for (int index = 0, len = str.length(); index < len; index++) {
+      rev[index] = str[len-1-index];
    }
+   return rev;
 }
 
 int main() {
-   std::string str = "Hello, World!";
-   reverseString(str);
-   std::cout << str << std::endl; // Outputs: "!dlroW ,olleH"
+   string str = "Hello, World!";
+   string rev = reverseString(str);
+   cout << rev << endl; // Outputs: "!dlroW ,olleH"
 }

@@ -1,159 +1,111 @@
-### Chapter 1  - [[Basics of C++]]
-
-``` 
-1.1
-Statements and the structure of a program
-1.2
-Comments
-1.3
-Introduction to objects and variables
-1.4
-Variable assignment and initialization
-1.5
-Introduction to iostream: cout, cin, and endl
-1.6
-Uninitialized variables and undefined behavior
-1.7
-Keywords and naming identifiers
-1.8
-Whitespace and basic formatting
-1.9
-Introduction to literals and operators
-1.10
-Introduction to expressions
-
-```
-##### Exercise 1 
+##### Exercise 1 - Area Calculator
 **Problem** <hr>
 
-> Create a program that asks the user to enter a decimal number, waits for them to input a number, then tells them what half of that number is. The program should produce the following output (assume the user entered 10.0 as input):
-	Enter a decimal number: 10.0 Half of that number is: 5.0
+> Write a function that calculates the area of different shapes based on user input. Prompt the user to enter the type of shape (e.g., circle, rectangle, triangle) and the necessary measurements (e.g., radius, length, width, base, height). Implement separate functions for calculating the area of each shape. Use a switch statement or if-else statements to determine which shape's area calculation function to call based on the user's input.
 
 **Solution** <hr>
-
 ```
 #include <iostream>
 
-int main() {
-    std::cout << "Enter a float: " << std::endl;
-
-    float user_input{};
-    std::cin >> user_input;
-
-    std::cout << "The half of your input is: " << user_input / 2.0 << std::endl;
-
-    return 0;
+void CircArea_Calc(double circ_radius) {    
+    std::cout << 3.14159265 * (circ_radius * circ_radius) << std::endl; 
 }
-```
-##### Exercise 2
 
-**Problem** <hr>
-
-> Write a program that prompts the user to enter two integers, waits for them to input the numbers, and then displays the sum of the two numbers. The program should produce the following output (assume the user entered 3 and 5 as inputs):
-	Enter the first number: 3 Enter the second number: 5 The sum of the numbers is: 8
-<hr>
-
-**Solution** <hr>
-
-```
-#include <iostream>
-
-int main() {
-    std::cout << "Enter two integers: " << std::endl;
-    int num_1{};
-    int num_2{};
-
-    std::cin >> num_1 >> num_2;
-
-    std::cout << "The sum of your inputs is: " << num_1 + num_2 << std::endl;
-
-    return 0;
+void RectArea_Calc (double BaseR, double HeightR) {
+    std::cout << " The area of rectangle is " << BaseR * HeightR << std::endl; 
 }
-```
-##### Exercise 3 
 
-**Problem** <hr>
+void TriaArea_Calc (double BaseT, double HeightT) {
+     std::cout << " The area of triangle is " << (BaseT * HeightT) / 2 << std::endl;
+}
 
->Develop a program that asks the user to enter a positive integer, waits for them to input a number, and then determines if the number is even or odd. The program should produce the following output (assume the user entered 7 as input):
-  Enter a positive integer: 7 The number is odd.
 
-**Solution** <hr>
+int main () {
+    std::cout << " Choose shape: Circle or Rectangle, Triangle: " << std::endl;
+    std::string shape_choice {};
+    std::cin >> shape_choice;
 
-```
+    if (shape_choice == "Circle") {
+        std::cout << " What is the radius of your Circle " << std::endl;
+        double radius_input {};
+        std::cin >> radius_input;
+        CircArea_Calc(radius_input);
+    }
 
-#include <iostream>
+    else if (shape_choice == "Rectangle") {
+        std::cout << " Enter the base and height, respectively " << std::endl;
+        double base_inputRect {};
+        double height_inputRect {};
+        std::cin >> base_inputRect >> height_inputRect;
+        RectArea_Calc(base_inputRect, height_inputRect);
+    }
 
-int main() {
-    int number{};
-    std::cout << "Enter an integer: " << std::endl;
-    std::cin >> number;
-
-    if (number % 2 == 0) {
-        std::cout << "The number is even" << std::endl;
-    } else {
-        std::cout << "The number is odd" << std::endl;
+    else {
+        std::cout << " Enter the base and height, respectively " << std::endl;
+        double base_inputTria {};
+        double height_inputTria {};
+        std::cin >> base_inputTria >> height_inputTria;
+        TriaArea_Calc(base_inputTria, height_inputTria);
     }
 
     return 0;
 }
 
 ```
-##### Exercise 4
 
+##### Exercise 2 - String Reversal
+**Problem** <hr>
+> Write a function that takes a string as input and reverses it. Implement the function to reverse the given string in-place (modify the original string) or return a new reversed string. Test the function with different strings to ensure it handles various cases, including empty strings and strings with whitespace.
+
+**Solution 1** <hr>
+
+```
+#include <iostream>
+
+void reverseString(std::string& str) {
+   char ch;
+   for (int index = 0, len = str.length(); index < len/2; index++) {
+      ch = str[index];
+      str[index] = str[len-1-index];
+      str[len-1-index] = ch;
+   }
+}
+
+int main() {
+   std::string str = "Hello, World!";
+   reverseString(str);
+   std::cout << str << std::endl; // Outputs: "!dlroW ,olleH"
+}
+
+```
+
+
+##### Exercise 3 - Prime Number Checker
 **Problem** <hr>
 
->  Create a program that prompts the user to enter the radius of a circle, waits for them to input a number, and then calculates and displays the area of the circle. The program should produce the following output (assume the user entered 2.5 as input):
-    Enter the radius of the circle: 2.5 The area of the circle is: 19.
+> Write a function that takes an integer as input and checks whether it is a prime number. Implement the function using a loop to check if the number is divisible by any integers from 2 to the square root of the number. Return a boolean value indicating whether the number is prime or not. Test the function with different numbers, including prime and non-prime numbers.
 
 **Solution** <hr>
 
-```
-#include <iostream>
 
-int main() {
-    float input_radius {};
+##### Exercise 4 - Fibonacci sequence
+**Problem** <hr>
 
-    std::cout << "Enter the radius of the circle: ";
-    std::cin >> input_radius;
+> 1. Create a function that takes an integer as a parameter, representing the length of the Fibonacci sequence.
+2 In the function, initialize two variables with the first two numbers of the sequence (0 and 1).
+3.Use a loop to generate the remaining numbers of the sequence by adding the previous two numbers.
+4.Print each number of the sequence.
 
-    float area = 3.14 * (input_radius * input_radius);
+**Solution** <hr>
 
-    std::cout << "The area of the circle is: " << area << std::endl;
 
-    return 0;
-}
-```
-##### Exercise 5
+##### Exercise 5 - Factorial
+**Problem** <hr>
 
-**Problem**
->Write a program that asks the user to enter three numbers, waits for them to input the numbers, and then finds and displays the largest number among the three. The program should produce the following output (assume the user entered 10, 7, and 13 as inputs):
-  Enter the first number: 10 Enter the second number: 7 Enter the third number: 13 The largest number is: 13
+> 1. Create a function that takes an integer as a parameter, representing the number to calculate the factorial of.
+2.In the function, initialize a variable with the value 1.
+3.Use a loop to multiply the variable by each number from 1 to the given number.
+4.Print the final value of the variable.
 
-```
-#include <iostream>
-using namespace std;
-
-int main() {
-    int a, b, c {};
-    cout << "Enter the three numbers a, b & c" << endl;
-    cin >> a >> b >> c;
-
-    if (a >= b) {
-        if (a >= c) {
-            cout << "The Largest Among Three Numbers is : " << a << endl;
-        } else {
-            cout << "The Largest Among Three Numbers is : " << c << endl;
-        }
-    } else {
-        if (b >= c) {
-            cout << "The Largest Among Three Numbers is : " << b << endl;
-        } else {
-            cout << "The Largest Among Three Numbers is : " << c << endl;
-        }
-    }
-
-    return 0;
-}
-```
-
+**Solution** <hr>
 
