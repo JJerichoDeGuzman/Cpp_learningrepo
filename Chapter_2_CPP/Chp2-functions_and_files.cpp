@@ -1,30 +1,63 @@
 #include <iostream>
-#include <cmath>
 
-bool isPrime(int n) {
-    if (n <= 1)
-        return false;
-    for (int i = 2; i <= sqrt(n); i++) {
-        if (n % i == 0)
-            return false;
+bool isFibonacci(int num) {
+    int a = 0;
+    int b = 1;
+
+    if (num == a || num == b) {
+        return true;
     }
-    return true;
+
+    while (b <= num) {
+        int temp = b;
+        b = a + b;
+        a = temp;
+
+        if (b == num) {
+            return true;
+        }
+    }
+
+    return false;
 }
 
-void prime_func(int prime_num) {
-    if (isPrime(prime_num)) {
-        std::cout << prime_num << " is a prime number" << std::endl;
+void generateFibonacci(int length) {
+    int first = 0;
+    int second = 1;
+
+    std::cout << "Fibonacci Sequence: ";
+
+    // Print the first two numbers
+    std::cout << first << " " << second << " ";
+
+    for (int i = 2; i < length; i++) {
+        int next = first + second;
+        std::cout << next << " ";
+
+        // Update the values for the next iteration
+        first = second;
+        second = next;
     }
-    else {
-        std::cout << prime_num << " is not a prime number" << std::endl;
-    }
+
+    std::cout << std::endl;
 }
 
 int main() {
-    std::cout << "Enter an integer: " << std::endl;
-    int prime_checker;
-    std::cin >> prime_checker;
-    prime_func(prime_checker);
+    int length;
+    std::cout << "Enter the length of the Fibonacci sequence: ";
+    std::cin >> length;
+
+    generateFibonacci(length);
+
+    int input;
+    std::cout << "Enter a number to check if it's in the Fibonacci sequence: ";
+    std::cin >> input;
+
+    if (isFibonacci(input)) {
+        std::cout << input << " is in the Fibonacci sequence" << std::endl;
+    } else {
+        std::cout << input << " is not in the Fibonacci sequence" << std::endl;
+    }
 
     return 0;
 }
