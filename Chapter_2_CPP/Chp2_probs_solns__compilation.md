@@ -78,6 +78,27 @@ int main() {
 }
 
 ```
+**Solution 2** <hr>
+```
+#include <iostream> 
+
+
+std::string reverseString(const std::string& str) {
+   std::string rev(str.length(), ' ');
+   for (int index = 0, len = str.length(); index < len; index++) {
+      rev[index] = str[len-1-index];
+   }
+   return rev;
+}
+
+int main() {
+   std::string str = "Hello, World!";
+   std::string rev = reverseString(str);
+   std::cout << rev << std::endl; // Outputs: "!dlroW ,olleH"
+}
+
+
+```
 
 
 ##### Exercise 3 - Prime Number Checker
