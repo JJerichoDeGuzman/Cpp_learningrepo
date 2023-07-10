@@ -1,26 +1,14 @@
 #include <iostream>
-#include <string>
 
-int main()
-{
-    std::cout << "Enter an integer"; 
-    int x {};
-    std::cin >> x; 
+int main() { 
 
-    if  (x > 0 ) {
-        std::cout << x << "is a positive number";
-    } 
-
-    else if ( x == 0 ) {
-        
-        std::cout << x << "is a zero";
-    }
-
-    else {
-
-        std::cout << x << "is a negative"; 
+    for (int i = 0; i < 5; i++) {
+        std::cout << "Count: " << i << std::endl;
 
     }
+return 0;
 
-    return 0;
+
+
+
 }
