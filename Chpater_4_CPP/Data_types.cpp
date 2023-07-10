@@ -1,11 +1,16 @@
 #include <iostream>
-#include <iomanip> // for output manipulator std::setprecision()
+#include <string>
 
 int main()
 {
-    std::cout << std::setprecision(16); // show 16 digits of precision
-    std::cout << 3.33333333333333333333333333333333333333ld <<'\n'; // f suffix means float
-    std::cout << 3.33333333333333333333333333333333333333 << '\n'; // no suffix means double
+    std::cout << "Enter your full name: ";
+    std::string name{};
+    std::getline(std::cin >> std::ws, name); 
+    
+
+    
+
+    
 
     return 0;
 }

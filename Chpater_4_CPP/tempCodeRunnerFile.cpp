@@ -1,15 +1,12 @@
-#include <iostream> 
+#include <iomanip> // for std::setprecision()
+#include <iostream>
 
-int main () {
+int main()
+{
+    double d{0.3};
+    std::cout << d << '\n'; // use default cout precision of 6
+    std::cout << std::setprecision(17);
+    std::cout << d << '\n';
 
-    std::cout << "Enter an integer: " << std::endl; 
-    unsigned int n_input = 0; 
-    std::cin >> n_input;
-    
-
-    for ( int i = 1; i <= n_input; i++ ) {
-        n_input = n_input + i; 
-        std::cout << n_input << std::endl;
-    }
-
+    return 0;
 }
