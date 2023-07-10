@@ -3,14 +3,24 @@
 
 int main()
 {
-    std::cout << "Enter your full name: ";
-    std::string name{};
-    std::getline(std::cin >> std::ws, name); 
-    
+    std::cout << "Enter an integer"; 
+    int x {};
+    std::cin >> x; 
 
-    
+    if  (x > 0 ) {
+        std::cout << x << "is a positive number";
+    } 
 
-    
+    else if ( x == 0 ) {
+        
+        std::cout << x << "is a zero";
+    }
+
+    else {
+
+        std::cout << x << "is a negative"; 
+
+    }
 
     return 0;
 }
