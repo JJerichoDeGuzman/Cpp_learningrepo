@@ -1,14 +1,13 @@
 #include <iostream>
 
-int main() { 
+void print(int x) // print now takes an int parameter
+{
+	std::cout << x << '\n';
+}
 
-    for (int i = 0; i < 5; i++) {
-        std::cout << "Count: " << i << std::endl;
+int main()
+{
+	print(5.5); // warning: we're passing in a double value
 
-    }
-return 0;
-
-
-
-
+	return 0;
 }
