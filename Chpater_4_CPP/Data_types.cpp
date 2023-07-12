@@ -1,13 +1,27 @@
 #include <iostream>
 
-void print(int x) // print now takes an int parameter
-{
-	std::cout << x << '\n';
+void int_Char_Converter (int x){
+
+    char charEquivalent = static_cast<char>(x);
+    std::cout << "The char equivalent of the input integer is : " <<  charEquivalent << std::endl;
+
 }
 
-int main()
-{
-	print(5.5); // warning: we're passing in a double value
+int main() {
 
-	return 0;
+        std::cout << "This is an integer to character converter program" << std::endl;
+        std::cout << "Enter an integer between 65 and 90: " << std::endl;
+        int integerInput {};
+        std::cin >> integerInput; 
+
+        while ( 65 > integerInput || integerInput > 90){
+            std::cout << "Enter an integer between 65 and 90: " << std::endl; 
+            std::cin >> integerInput; 
+        }
+
+    int_Char_Converter(integerInput);
+
+    return 0;
 }
+
+
