@@ -1,27 +1,16 @@
 #include <iostream>
-
-void int_Char_Converter (int x){
-
-    char charEquivalent = static_cast<char>(x);
-    std::cout << "The char equivalent of the input integer is : " <<  charEquivalent << std::endl;
-
-}
+#include <string>
 
 int main() {
-
-        std::cout << "This is an integer to character converter program" << std::endl;
-        std::cout << "Enter an integer between 65 and 90: " << std::endl;
-        int integerInput {};
-        std::cin >> integerInput; 
-
-        while ( 65 > integerInput || integerInput > 90){
-            std::cout << "Enter an integer between 65 and 90: " << std::endl; 
-            std::cin >> integerInput; 
-        }
-
-    int_Char_Converter(integerInput);
-
+    int n = 1;
+    
+    std::string numbers[] = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+    
+    if (n >= 1 && n <= 9) {
+        std::cout << numbers[n - 1] << std::endl;
+    } else {
+        std::cout << "Greater than 9" << std::endl;
+    }
+    
     return 0;
 }
-
-
