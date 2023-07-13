@@ -2,15 +2,12 @@
 #include <string>
 
 int main() {
-    int n = 1;
-    
-    std::string numbers[] = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-    
-    if (n >= 1 && n <= 9) {
-        std::cout << numbers[n - 1] << std::endl;
-    } else {
-        std::cout << "Greater than 9" << std::endl;
-    }
-    
-    return 0;
-}
+
+
+const double gravity { 9.8 };  // preferred use of const before type
+int const sidesInSquare { 4 }; // "east const" style, okay but not preferred
+
+
+gravity = 5
+return 0; 
+} 
