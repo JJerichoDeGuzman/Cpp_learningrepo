@@ -1,13 +1,10 @@
 #include <iostream>
-#include <string>
 
-int main() {
+int main()
+{
+    std::cout << 5 << '\n';  // 5 (no suffix) is type int (by default)
+    std::cout << 5L << '\n'; // 5L is type long
+    std::cout << 5u << '\n'; // 5u is type unsigned int
 
-
-const double gravity { 9.8 };  // preferred use of const before type
-int const sidesInSquare { 4 }; // "east const" style, okay but not preferred
-
-
-gravity = 5
-return 0; 
-} 
+    return 0;
+}
