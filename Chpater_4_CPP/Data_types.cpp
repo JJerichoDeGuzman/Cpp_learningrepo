@@ -1,39 +1,36 @@
 #include <iostream>
-#include <string>
-#include <string_view>
 
-int main()
-{
+// Computes how far the ball has fallen after x seconds
+void heightCalculator (double heightGiven) {
+    constexpr double GRAVITY {9.8};
+    int time {0};
 
-    std::cout << "Enter a decimal value to compute: \n";
-    double x {}; 
-    std::cin >> x; 
+    // formula: distance fallen = gravity_constant * x_seconds^2 / 2 
+    for ( int i = 0; i <= 5; i++) {
+        double distanceFallen = GRAVITY * time * time / 2;
+        double givenHeightMinusFallenheight = heightGiven - distanceFallen; 
 
-    std::cout << "Enter a decimal value to compute: \n";     
-    double y {}; 
-    std::cin >> y;
+        if (givenHeightMinusFallenheight <= 0) {
+            std::cout << "At " << time << " seconds, the ball is on the ground.\n";
+            break;
+        } else {
+            std::cout << "At " << time << " seconds, the ball is at height: " 
+                      << givenHeightMinusFallenheight << " meters\n";
+        }
 
-    std::cout << "Enter an operator: \n" << " Choose betwee, *, +, -, / \n";   
-    char oper {}; 
-    std::cin >> oper; 
-
-    if (oper == '+'){
-        std::cout << x + y; 
+        time++;
     }
-
-    else if ( oper == '-'){
-        std::cout << x - y; 
-    }
-    else if ( oper == '*'){
-        std::cout << x * y; 
-    }
-    else if ( oper == '/' ){
-        std::cout << x / y;
-    }
-    else{ 
-        std::cout << " Invalid symbol " << std::endl;
-    }
-
-return 0; 
 }
 
+int main(){ 
+
+    // Prompt user for height of towers in meters
+    std::cout << "Enter the height of the tower (in meters): \n";
+    double towerHeight {};
+    std::cin >> towerHeight; 
+
+    // function call
+    heightCalculator(towerHeight);
+
+    return 0; 
+}
