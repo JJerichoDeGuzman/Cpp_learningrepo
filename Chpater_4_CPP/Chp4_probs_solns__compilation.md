@@ -1,96 +1,77 @@
 ### Chapter 4 - [[Fundamental Data Types]]
 
-##### Exercise 1 
 **Problem** <hr>
 
-> Write a program that calculates the area of a circle. Prompt the user to enter the radius as a floating-point number and use the `double` data type to store the radius and calculate the area. Display the result with two decimal places.
+> Integer to Character Conversion: Write a program that prompts the user to enter an integer between 65 and 90 and then converts it to the corresponding uppercase character using static casting. Display the converted character.
 
 **Solution** <hr>
 
-``` 
+```Cpp
 #include <iostream>
 
-void rad_calculator(double GivenRad) {
-    std::cout << " The area of the circle is: " << 3.14159265 * (GivenRad * GivenRad) << std::endl;
-
-}
-
-int main () {
-
-    std::cout << " Enter a the radius of a circle in decimal: " << std::endl;
-    double rad_input {};
-    std::cin >> rad_input;
-    rad_calculator(rad_input);
-    return 0;
-}
-```
-
-##### Exercise 2
-**Problem** <hr>
-
-> Write a program that calculates the sum of the first `n` natural numbers using the `unsigned int` data type. Prompt the user to enter the value of `n` and calculate the sum using a loop. Display the sum at the end.
-
-
-**Solution** <hr>
-
-``` 
-#include <iostream>
-
-int main() {
-    std::cout << "Enter an integer: " << std::endl;
-    unsigned int n_input {};
-    std::cin >> n_input;
-    unsigned int sum = 0;
-
-    for (int i = 1; i <= n_input; i++) {
-        sum += i;
-        std::cout << "Solution: " << i << " + " << sum - i << " = " << sum << std::endl;
-    }
-
-    return 0;
-}
-```
-
-##### Exercise 3
-**Problem** <hr>
-
-> Write a program that converts a given temperature in Fahrenheit to Celsius. Prompt the user to enter the temperature as a floating-point number using the `float` data type. Perform the conversion using the formula `C = (F - 32) * 5/9` and display the result with two decimal places
-
-
-**Solution** <hr>
-
-``` 
-#include <iostream> 
-
-void Celsius_converter(double Celc) {
-    std::cout << Celc << " is " << ((Celc * 9) / 5) + 32 << " Farenheit " << std::endl;
-}
-
-void Farenheit_converter(double Faren) {
-    std::cout << Faren << " is " << ((Faren - 32) * 5) / 9 << " Celsius " << std::endl;
+void int_Char_Converter(int x) {
+    char charEquivalent = static_cast<char>(x);
+    std::cout << "The char equivalent of the input integer is: " << charEquivalent << std::endl;
 }
 
 int main() {
-    std::cout << "Type C to convert Celsius to Fahrenheit " << std::endl;
-    std::cout << "Type F to convert Fahrenheit to Celsius " << std::endl;
-    std::string user_input {};
-    std::cin >> user_input;
+    std::cout << "This is an integer to character converter program" << std::endl;
+    std::cout << "Enter an integer between 65 and 90: " << std::endl;
+    int integerInput{};
+    std::cin >> integerInput;
 
-    if (user_input == "C") {
-        std::cout << "Enter Celsius: " << std::endl;
-        double Celsius_Input {};
-        std::cin >> Celsius_Input;
-        Celsius_converter(Celsius_Input);
-    } // Added closing brace here
-
-    else if (user_input == "F") {
-        std::cout << "Enter Fahrenheit: " << std::endl;
-        double Fahrenheit_Input {};
-        std::cin >> Fahrenheit_Input;
-        Farenheit_converter(Fahrenheit_Input);
+    while (65 > integerInput || integerInput > 90) {
+        std::cout << "Enter an integer between 65 and 90: " << std::endl;
+        std::cin >> integerInput;
     }
+
+    int_Char_Converter(integerInput);
 
     return 0;
 }
 
 ```
+
+##### Exercise 2: std::string
+
+**Problem** <hr>
+
+> Write a program that asks the user to enter their full name and their age. As output, tell the user the sum of their age and the number of letters in their name (use the `std::string::length()` member function to get the length of the string). For simplicity, count any spaces in the name as a letter.
+> 
+> Sample output:
+	Enter your full name: John Doe
+	Enter your age: 32
+	Your age + length of name is: 40
+	Reminder: We need to be careful not to mix signed and unsigned values. `std::string::length()` returns an unsigned value. If you’re C++20 capable, use `std::ssize()` to get the length as a signed value. Otherwise, static_cast the return value of `std::string::length()` to an int.
+
+	
+**Solution** <hr> 
+```Cpp
+#include <iostream>
+#include <string>
+
+int main() {
+    std::cout << "Enter your full name: ";
+    std::string fullName;
+    std::getline(std::cin, fullName);
+
+    std::cout << "How old are you: ";
+    int age;
+    std::cin >> age;
+    std::cin.ignore(); // Ignore the newline character left in the input stream
+
+    int letters = static_cast<int>(fullName.length());
+    std::cout << "Your age + length of your name is: " << age + letters << '\n';
+
+    return 0;
+}
+
+```
+
+
+
+
+	
+	
+	
+

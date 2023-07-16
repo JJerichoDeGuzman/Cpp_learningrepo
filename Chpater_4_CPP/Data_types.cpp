@@ -4,15 +4,36 @@
 
 int main()
 {
-    std::string_view s1 { "Hello, world!" }; // initialize with C-style string literal
-    std::cout << s1 << '\n';
 
-    std::string s{ "Hello, world!" };
-    std::string_view s2 { s };  // initialize with std::string
-    std::cout << s2 << '\n';
+    std::cout << "Enter a decimal value to compute: \n";
+    double x {}; 
+    std::cin >> x; 
 
-    std::string_view s3 { s2 }; // initialize with std::string_view
-    std::cout << s3 << '\n';
+    std::cout << "Enter a decimal value to compute: \n";     
+    double y {}; 
+    std::cin >> y;
 
-    return 0;
+    std::cout << "Enter an operator: \n" << " Choose betwee, *, +, -, / \n";   
+    char oper {}; 
+    std::cin >> oper; 
+
+    if (oper == '+'){
+        std::cout << x + y; 
+    }
+
+    else if ( oper == '-'){
+        std::cout << x - y; 
+    }
+    else if ( oper == '*'){
+        std::cout << x * y; 
+    }
+    else if ( oper == '/' ){
+        std::cout << x / y;
+    }
+    else{ 
+        std::cout << " Invalid symbol " << std::endl;
+    }
+
+return 0; 
 }
+
