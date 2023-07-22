@@ -7,8 +7,8 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${workspaceFolder}\\Cars\*.cpp",
-                "${workspaceFolder}\\cars\*.h",
+                "main.cpp"
+                "add.cpp"
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
